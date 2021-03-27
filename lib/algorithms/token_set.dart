@@ -1,12 +1,13 @@
-import 'dart:collection';
 import 'dart:math';
 
 import '../applicable.dart';
 
 class TokenSet {
   int apply(String s1, String s2, Applicable ratio) {
-    Set<String> tokens1 = HashSet.from(s1.split("\\s+"));
-    Set<String> tokens2 = HashSet.from(s2.split("\\s+"));
+    Set<String> tokens1 = s1.split(RegExp("\\s+")).toSet();
+    Set<String> tokens2 = s2.split(RegExp("\\s+")).toSet();
+
+    tokens1.length;
 
     Set<String> intersection = tokens1.intersection(tokens2);
     Set<String> diff1to2 = tokens1.difference(tokens2);

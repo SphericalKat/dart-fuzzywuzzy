@@ -9,7 +9,7 @@ class TokenSort {
   }
 
   static String sort(String s) {
-    List<String> words = s.split("\\s+")..sort();
+    List<String> words = s.split(RegExp("\\s+"))..sort();
     String joined = words.join(" ");
     return joined.trim();
   }
