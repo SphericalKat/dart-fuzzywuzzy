@@ -1,0 +1,6 @@
+name: "fuzzywuzzy"
+version: "0.1.0"
+homepage: "https://github.com/sphericalkat/dart-fuzzywuzzy"
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
