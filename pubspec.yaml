@@ -1,6 +1,7 @@
 name: "fuzzywuzzy"
 version: "0.1.0"
 homepage: "https://github.com/sphericalkat/dart-fuzzywuzzy"
+description: An implementation of the popular fuzzywuzzy package in dart
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

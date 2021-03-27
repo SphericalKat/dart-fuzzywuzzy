@@ -1,5 +1,6 @@
 import 'algorithms/token_set.dart';
 import 'algorithms/token_sort.dart';
+import 'algorithms/weighted_ratio.dart';
 import 'ratios/partial_ratio.dart';
 import 'ratios/simple_ratio.dart';
 
@@ -25,4 +26,15 @@ int tokenSetRatio(String s1, String s2) {
 
 int tokenSetPartialRatio(String s1, String s2) {
   return TokenSet().apply(s1, s2, PartialRatio());
+}
+
+/// Calculates a weighted ratio between [s1] and [s2] using several different 
+/// fuzzy matching algorithms
+/// 
+/// Example:
+/// ```dart
+/// weightedRatio("The quick brown fox jimps ofver the small lazy dog", "the quick brown fox jumps over the small lazy dog") // 97
+/// ```
+int weightedRatio(String s1, String s2) {
+  return WeightedRatio().apply(s1.toLowerCase(), s2.toLowerCase());
 }
