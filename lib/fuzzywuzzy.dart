@@ -28,8 +28,8 @@ int tokenSetPartialRatio(String s1, String s2) {
   return TokenSet().apply(s1, s2, PartialRatio());
 }
 
-/// Calculates a weighted ratio between [s1] and [s2] using several different 
-/// fuzzy matching algorithms
+/// Calculates a weighted ratio between [s1] and [s2] using the best option from 
+/// the above fuzzy matching algorithms
 /// 
 /// Example:
 /// ```dart

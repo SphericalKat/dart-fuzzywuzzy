@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import '../applicable.dart';
-import '../fuzzy_search.dart';
+import '../fuzzywuzzy.dart';
 
 class WeightedRatio implements Applicable {
   static const UNBASE_SCALE = 0.95;
