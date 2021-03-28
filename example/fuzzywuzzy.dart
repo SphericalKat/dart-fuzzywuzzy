@@ -74,4 +74,21 @@ void main() {
       cutoff: 10
     ),
   );
+
+  print(
+    extractOne(
+      query: 'goolge',
+      choices: [
+        'google',
+        'bing',
+        'facebook',
+        'linkedin',
+        'twitter',
+        'googleplus',
+        'bingnews',
+        'plexoogl'
+      ],
+      cutoff: 10
+    ),
+  );
 }

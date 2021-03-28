@@ -19,7 +19,7 @@ I personally needed to use this for my own search algorithms, and there weren't 
 
 ```yaml
 dependencies:
-  fuzzywuzzy: 0.1.0 # latest version
+  fuzzywuzzy: 0.1.3 # latest version
 ```
 
 ## Usage
