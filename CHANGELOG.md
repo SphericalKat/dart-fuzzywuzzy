@@ -1,3 +1,6 @@
+## 0.1.4
+- Update readme with more accurate info
+
 ## 0.1.3
 - Add extractors
 - Add tests for extractors

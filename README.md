@@ -3,11 +3,11 @@
 [![Tests](https://github.com/SphericalKat/dart-fuzzywuzzy/actions/workflows/test.yml/badge.svg)](https://github.com/SphericalKat/dart-fuzzywuzzy/actions/workflows/test.yml)
 ![Coverage](https://raw.githubusercontent.com/sphericalkat/dart-fuzzywuzzy/master/coverage_badge.svg?sanitize=true)
 
-This is a dart port of the popular [FuzzyWuzzy](https://github.com/seatgeek/fuzzywuzzy) python package. This algorithm uses [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) to calculate similarity between strings.
+This is a Dart port of the popular [FuzzyWuzzy](https://github.com/seatgeek/fuzzywuzzy) python package. This algorithm uses [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) to calculate similarity between strings.
 
 I personally needed to use this for my own search algorithms, and there weren't any packages as good as my experience with FuzzyWuzzy was, so here we are. Enjoy!
 
-- No dependencies.
+- Just one dependency ([collection](https://pub.dev/packages/collection)).
 - Pure Dart implementation of the superfast [python-Levenshtein](https://github.com/ztane/python-Levenshtein/).
 - Simple to use.
 - Lightweight.
@@ -19,7 +19,7 @@ I personally needed to use this for my own search algorithms, and there weren't 
 
 ```yaml
 dependencies:
-  fuzzywuzzy: 0.1.3 # latest version
+  fuzzywuzzy: 0.1.4 # latest version
 ```
 
 ## Usage
