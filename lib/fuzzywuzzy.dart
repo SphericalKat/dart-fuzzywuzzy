@@ -74,9 +74,21 @@ List<ExtractedResult> extractTop(
   return extractor.extractTop(query, choices, ratio, limit);
 }
 
+/// Creates a list of [ExtractedResult] which contains all the choices with
+/// their corresponding score where higher is more similar.
+/// Uses [WeightedRatio] as the default algorithm
+List<ExtractedResult> extractAll(
+    {required String query,
+    required List<String> choices,
+    int cutoff = 0,
+    Applicable ratio = const WeightedRatio()}) {
+  var extractor = Extractor(cutoff);
+  return extractor.extractWithoutOrder(query, choices, ratio);
+}
+
 /// Returns a sorted list of [ExtractedResult] without any cutoffs.
 /// Uses [WeightedRatio] as the default algorithm.
-List<ExtractedResult> extractSorted(
+List<ExtractedResult> extractAllSorted(
     {required String query,
     required List<String> choices,
     int cutoff = 0,

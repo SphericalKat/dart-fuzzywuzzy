@@ -40,4 +40,38 @@ void main() {
       cutoff: 50
     ),
   );
+
+  print(
+    extractAllSorted(
+      query: 'goolge',
+      choices: [
+        'google',
+        'bing',
+        'facebook',
+        'linkedin',
+        'twitter',
+        'googleplus',
+        'bingnews',
+        'plexoogl'
+      ],
+      cutoff: 10
+    ),
+  );
+
+  print(
+    extractAll(
+      query: 'goolge',
+      choices: [
+        'google',
+        'bing',
+        'facebook',
+        'linkedin',
+        'twitter',
+        'googleplus',
+        'bingnews',
+        'plexoogl'
+      ],
+      cutoff: 10
+    ),
+  );
 }
