@@ -6,3 +6,7 @@ repository: "https://github.com/sphericalkat/dart-fuzzywuzzy"
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
+
+dev_dependencies:
+  test:
+  test_coverage: ^0.4.2

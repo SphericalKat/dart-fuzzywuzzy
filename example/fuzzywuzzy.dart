@@ -10,7 +10,7 @@ void main() {
 
   // Token sort ratio
   print(tokenSortPartialRatio("order words out of", "words out of order"));
-  print(tokenSortRatio("order words out of", "  words out of order"));
+  print(tokenSortRatio("order words out of", "words out of order"));
 
   // Token set ratio
   print(tokenSetRatio("fuzzy was a bear", "fuzzy fuzzy fuzzy bear"));
