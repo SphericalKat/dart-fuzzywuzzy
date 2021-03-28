@@ -11,7 +11,7 @@ I personally needed to use this for my own search algorithms, and there weren't 
 - Pure Dart implementation of the superfast [python-Levenshtein](https://github.com/ztane/python-Levenshtein/).
 - Simple to use.
 - Lightweight.
-- Massive props to the folks over at seatgeek for coming up with the [algorithm](http://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/).
+- Massive props to the folks over at seatgeek for coming up with the [algorithm](https://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/).
 
 ## Get started
 

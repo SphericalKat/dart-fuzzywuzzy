@@ -160,7 +160,7 @@ class DiffUtils {
 
       if (dir == 0 && j != 0 && matrix[ptr] == matrix[ptr - 1] + 1) {
         pos--;
-        EditOp eop = new EditOp();
+        EditOp eop = EditOp();
         ops[pos] = eop;
         eop.type = EditType.INSERT;
         eop.spos = i + o1;
@@ -626,7 +626,7 @@ class DiffUtils {
     len1++;
     len2++;
     half = (len1 >> 1);
-    List<int> row = new List<int>.filled(len2, 0);
+    List<int> row = List<int>.filled(len2, 0);
     int end = (len2 - 1);
     for ((i = 0); i < (len2 - ((xcost != 0) ? 0 : half)); i++) {
       row[i] = i;

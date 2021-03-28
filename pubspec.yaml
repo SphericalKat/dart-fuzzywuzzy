@@ -1,7 +1,7 @@
 name: "fuzzywuzzy"
-version: "0.1.1"
+version: "0.1.2"
 homepage: "https://github.com/sphericalkat/dart-fuzzywuzzy"
-description: An implementation of the popular fuzzywuzzy package in dart
+description: An implementation of the popular fuzzywuzzy package in Dart, to suit all your fuzzy string matching/searching needs!
 repository: "https://github.com/sphericalkat/dart-fuzzywuzzy"
 
 environment:
