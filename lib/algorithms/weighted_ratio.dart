@@ -8,6 +8,8 @@ class WeightedRatio implements Applicable {
   static const PARTIAL_SCALE = 0.90;
   static const TRY_PARTIALS = true;
 
+  const WeightedRatio();
+
   @override
   int apply(String s1, String s2) {
     var len1 = s1.length;

@@ -17,8 +17,7 @@ class PartialRatio implements Applicable {
       longer = s1;
     }
 
-    var matchingBlocks =
-        DiffUtils.getMatchingBlocks(shorter, longer);
+    var matchingBlocks = DiffUtils.getMatchingBlocks(shorter, longer);
 
     var scores = <double>[];
 
@@ -33,6 +32,10 @@ class PartialRatio implements Applicable {
       var longSubstr = longer.substring(longStart, longEnd);
 
       var ratio = DiffUtils.getRatio(shorter, longSubstr);
+
+      if (ratio.isNaN) {
+        continue;
+      }
 
       if (ratio > 0.995) {
         return 100;
