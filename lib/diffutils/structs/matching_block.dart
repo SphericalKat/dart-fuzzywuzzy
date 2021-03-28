@@ -5,6 +5,6 @@ class MatchingBlock {
 
   @override
   String toString() {
-    return "($spos,$length)";
+    return '($spos,$length)';
   }
 }

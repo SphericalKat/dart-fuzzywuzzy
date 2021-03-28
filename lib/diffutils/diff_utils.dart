@@ -5,8 +5,8 @@ import 'structs/matching_block.dart';
 
 class DiffUtils {
   static List<EditOp> getEditOps(String s1, String s2) {
-    int len1 = s1.length;
-    int len2 = s2.length;
+    var len1 = s1.length;
+    var len2 = s2.length;
 
     int len1o, len2o;
     int i;
@@ -16,8 +16,8 @@ class DiffUtils {
     var c1 = s1.runes.toList();
     var c2 = s2.runes.toList();
 
-    int p1 = 0;
-    int p2 = 0;
+    var p1 = 0;
+    var p2 = 0;
 
     len1o = 0;
 
@@ -53,19 +53,19 @@ class DiffUtils {
     }
 
     for (i = 1; i < len1; i++) {
-      int ptrPrev = (i - 1) * len2;
-      int ptrC = i * len2;
-      int ptrEnd = ptrC + len2 - 1;
+      var ptrPrev = (i - 1) * len2;
+      var ptrC = i * len2;
+      var ptrEnd = ptrC + len2 - 1;
 
       var char1 = c1[p1 + i - 1];
-      int ptrChar2 = p2;
+      var ptrChar2 = p2;
 
-      int x = i;
+      var x = i;
 
       ptrC++;
 
       while (ptrC <= ptrEnd) {
-        int c3 = matrix[ptrPrev++] + (char1 != c2[ptrChar2++] ? 1 : 0);
+        var c3 = matrix[ptrPrev++] + (char1 != c2[ptrChar2++] ? 1 : 0);
         x++;
 
         if (x > c3) {
@@ -94,7 +94,7 @@ class DiffUtils {
 
     List<EditOp> ops;
 
-    int dir = 0;
+    var dir = 0;
 
     pos = matrix[len1 * len2 - 1];
     ops = List.filled(pos, EditOp());
@@ -118,7 +118,7 @@ class DiffUtils {
       }
 
       if (dir < 0 && j != 0 && matrix[ptr] == matrix[ptr - 1] + 1) {
-        EditOp eop = EditOp();
+        var eop = EditOp();
 
         pos--;
         ops[pos] = eop;
@@ -131,7 +131,7 @@ class DiffUtils {
       }
 
       if (dir > 0 && i != 0 && matrix[ptr] == matrix[ptr - len2] + 1) {
-        EditOp eop = EditOp();
+        var eop = EditOp();
 
         pos--;
         ops[pos] = eop;
@@ -146,7 +146,7 @@ class DiffUtils {
       if (i != 0 && j != 0 && matrix[ptr] == matrix[ptr - len2 - 1] + 1) {
         pos--;
 
-        EditOp eop = EditOp();
+        var eop = EditOp();
         ops[pos] = eop;
 
         eop.type = EditType.REPLACE;
@@ -160,7 +160,7 @@ class DiffUtils {
 
       if (dir == 0 && j != 0 && matrix[ptr] == matrix[ptr - 1] + 1) {
         pos--;
-        EditOp eop = EditOp();
+        var eop = EditOp();
         ops[pos] = eop;
         eop.type = EditType.INSERT;
         eop.spos = i + o1;
@@ -173,7 +173,7 @@ class DiffUtils {
 
       if (dir == 0 && i != 0 && matrix[ptr] == matrix[ptr - len2] + 1) {
         pos--;
-        EditOp eop = new EditOp();
+        var eop = EditOp();
         ops[pos] = eop;
 
         eop.type = EditType.DELETE;
@@ -258,13 +258,13 @@ class DiffUtils {
 
   static List<MatchingBlock> _getMatchingBlocks(
       int len1, int len2, List<EditOp> ops) {
-    int n = ops.length;
+    var n = ops.length;
 
     int numberOfMatchingBlocks, i, spos, dpos;
 
     numberOfMatchingBlocks = 0;
 
-    int o = 0;
+    var o = 0;
 
     spos = dpos = 0;
 
@@ -329,20 +329,22 @@ class DiffUtils {
       numberOfMatchingBlocks++;
     }
 
-    List<MatchingBlock> matchingBlocks =
-        List.filled(numberOfMatchingBlocks + 1, MatchingBlock());
+    var matchingBlocks =
+        List<MatchingBlock>.filled(numberOfMatchingBlocks + 1, MatchingBlock());
 
     o = 0;
     spos = dpos = 0;
-    int mbIndex = 0;
+    var mbIndex = 0;
 
     for (i = n; i != 0;) {
-      while (ops[o].type == EditType.KEEP && --i != 0) o++;
+      while (ops[o].type == EditType.KEEP && --i != 0) {
+        o++;
+      }
 
       if (i == 0) break;
 
       if (spos < ops[o].spos! || dpos < ops[o].dpos!) {
-        MatchingBlock mb = new MatchingBlock();
+        var mb = MatchingBlock();
 
         mb.spos = spos;
         mb.dpos = dpos;
@@ -398,7 +400,7 @@ class DiffUtils {
     if (spos < len1 || dpos < len2) {
       assert(len1 - spos == len2 - dpos);
 
-      MatchingBlock mb = new MatchingBlock();
+      var mb = MatchingBlock();
       mb.spos = spos;
       mb.dpos = dpos;
       mb.length = len1 - spos;
@@ -408,7 +410,7 @@ class DiffUtils {
 
     assert(numberOfMatchingBlocks == mbIndex);
 
-    MatchingBlock finalBlock = new MatchingBlock();
+    var finalBlock = MatchingBlock();
     finalBlock.spos = len1;
     finalBlock.dpos = len2;
     finalBlock.length = 0;
@@ -582,12 +584,12 @@ class DiffUtils {
   static int levEditDistance(String s1, String s2, int xcost) {
     int i;
     int half;
-    List<int> c1 = s1.runes.toList();
-    List<int> c2 = s2.runes.toList();
-    int str1 = 0;
-    int str2 = 0;
-    int len1 = s1.length;
-    int len2 = s2.length;
+    var c1 = s1.runes.toList();
+    var c2 = s2.runes.toList();
+    var str1 = 0;
+    var str2 = 0;
+    var len1 = s1.length;
+    var len2 = s2.length;
     while (((len1 > 0) && (len2 > 0)) && (c1[str1] == c2[str2])) {
       len1--;
       len2--;
@@ -606,13 +608,13 @@ class DiffUtils {
       return len1;
     }
     if (len1 > len2) {
-      int nx = len1;
-      int temp = str1;
+      var nx = len1;
+      var temp = str1;
       len1 = len2;
       len2 = nx;
       str1 = str2;
       str2 = temp;
-      List<int> t = c2;
+      var t = c2;
       c2 = c1;
       c1 = t;
     }
@@ -626,18 +628,18 @@ class DiffUtils {
     len1++;
     len2++;
     half = (len1 >> 1);
-    List<int> row = List<int>.filled(len2, 0);
-    int end = (len2 - 1);
+    var row = List<int>.filled(len2, 0);
+    var end = (len2 - 1);
     for ((i = 0); i < (len2 - ((xcost != 0) ? 0 : half)); i++) {
       row[i] = i;
     }
     if (xcost != 0) {
       for ((i = 1); i < len1; i++) {
-        int p = 1;
-        int ch1 = c1[(str1 + i) - 1];
-        int c2p = str2;
-        int D = i;
-        int x = i;
+        var p = 1;
+        var ch1 = c1[(str1 + i) - 1];
+        var c2p = str2;
+        var D = i;
+        var x = i;
         while (p <= end) {
           if (ch1 == c2[c2p++]) {
             x = (--D);
@@ -656,12 +658,12 @@ class DiffUtils {
       row[0] = ((len1 - half) - 1);
       for ((i = 1); i < len1; i++) {
         int p;
-        int ch1 = c1[(str1 + i) - 1];
+        var ch1 = c1[(str1 + i) - 1];
         int c2p;
         int D;
         int x;
         if (i >= (len1 - half)) {
-          int offset = (i - (len1 - half));
+          var offset = (i - (len1 - half));
           int c3;
           c2p = (str2 + offset);
           p = offset;
@@ -682,7 +684,7 @@ class DiffUtils {
           end = (((len2 + i) - half) - 2);
         }
         while (p <= end) {
-          int c3 = ((--D) + ((ch1 != c2[c2p++]) ? 1 : 0));
+          var c3 = ((--D) + ((ch1 != c2[c2p++]) ? 1 : 0));
           x++;
           if (x > c3) {
             x = c3;
@@ -695,7 +697,7 @@ class DiffUtils {
           row[p++] = x;
         }
         if (i <= half) {
-          int c3 = ((--D) + ((ch1 != c2[c2p]) ? 1 : 0));
+          var c3 = ((--D) + ((ch1 != c2[c2p]) ? 1 : 0));
           x++;
           if (x > c3) {
             x = c3;
@@ -710,7 +712,7 @@ class DiffUtils {
 
   static int _memchr(List<int> haystack, int offset, int needle, int num) {
     if (num != 0) {
-      int p = 0;
+      var p = 0;
       do {
         if (haystack[offset + p] == needle) {
           return 1;
@@ -722,12 +724,12 @@ class DiffUtils {
   }
 
   static double getRatio(String s1, String s2) {
-    int len1 = s1.length;
-    int len2 = s2.length;
+    var len1 = s1.length;
+    var len2 = s2.length;
 
-    int lensum = len1 + len2;
+    var lensum = len1 + len2;
 
-    int editDistance = levEditDistance(s1, s2, 1);
+    var editDistance = levEditDistance(s1, s2, 1);
 
     return (lensum - editDistance) / lensum.toDouble();
   }

@@ -7,6 +7,6 @@ class EditOp {
 
   @override
   String toString() {
-    return "$type($spos,$dpos)";
+    return '$type($spos,$dpos)';
   }
 }

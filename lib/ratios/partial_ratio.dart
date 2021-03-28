@@ -1,6 +1,5 @@
 import '../applicable.dart';
 import '../diffutils/diff_utils.dart';
-import '../diffutils/structs/matching_block.dart';
 
 import 'dart:math';
 
@@ -18,22 +17,22 @@ class PartialRatio implements Applicable {
       longer = s1;
     }
 
-    List<MatchingBlock> matchingBlocks =
+    var matchingBlocks =
         DiffUtils.getMatchingBlocks(shorter, longer);
 
-    List<double> scores = [];
+    var scores = <double>[];
 
-    for (MatchingBlock mb in matchingBlocks) {
-      int dist = mb.dpos! - mb.spos!;
+    for (var mb in matchingBlocks) {
+      var dist = mb.dpos! - mb.spos!;
 
-      int longStart = dist > 0 ? dist : 0;
-      int longEnd = longStart + shorter.length;
+      var longStart = dist > 0 ? dist : 0;
+      var longEnd = longStart + shorter.length;
 
       if (longEnd > longer.length) longEnd = longer.length;
 
-      String longSubstr = longer.substring(longStart, longEnd);
+      var longSubstr = longer.substring(longStart, longEnd);
 
-      double ratio = DiffUtils.getRatio(shorter, longSubstr);
+      var ratio = DiffUtils.getRatio(shorter, longSubstr);
 
       if (ratio > 0.995) {
         return 100;
