@@ -1,12 +1,12 @@
-import 'edit_type.dart';
+// import 'edit_type.dart';
 
-class OpCode {
-  EditType? type;
-  int? sbeg, send;
-  int? dbeg, dend;
+// class OpCode {
+//   EditType? type;
+//   int? sbeg, send;
+//   int? dbeg, dend;
 
-  @override
-  String toString() {
-    return "$type($sbeg,$send,$dbeg,$dend)";
-  }
-}
+//   @override
+//   String toString() {
+//     return "$type($sbeg,$send,$dbeg,$dend)";
+//   }
+// }
