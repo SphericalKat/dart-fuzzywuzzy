@@ -15,7 +15,7 @@ class Extractor {
     var index = 0;
 
     for (var s in choices) {
-      var score = func.apply(query, s);
+      var score = func.apply(query.toLowerCase(), s.toLowerCase());
 
       if (score >= _cutoff) {
         yields.add(ExtractedResult(s, score, index));

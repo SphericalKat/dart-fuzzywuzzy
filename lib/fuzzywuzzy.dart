@@ -96,3 +96,13 @@ List<ExtractedResult> extractAllSorted(
   var extractor = Extractor(cutoff);
   return extractor.extractSorted(query, choices, ratio);
 }
+
+/// Find the single best match above the [cutoff] in a list of choices.
+ExtractedResult extractOne(
+    {required String query,
+    required List<String> choices,
+    int cutoff = 0,
+    Applicable ratio = const WeightedRatio()}) {
+  var extractor = Extractor(cutoff);
+  return extractor.extractOne(query, choices, ratio);
+}

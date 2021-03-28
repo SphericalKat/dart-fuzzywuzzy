@@ -114,5 +114,21 @@ void main() {
       expect(result,
           '[(string google, score: 83, index: 0), (string bing, score: 23, index: 1), (string facebook, score: 29, index: 2), (string linkedin, score: 29, index: 3), (string twitter, score: 15, index: 4), (string googleplus, score: 75, index: 5), (string bingnews, score: 29, index: 6), (string plexoogl, score: 43, index: 7)]');
     });
+
+    test('extract one returns appropriate values', () {
+      final result = extractOne(
+        query: 'cowboys',
+        choices: [
+          'Atlanta Falcons',
+          'New York Jets',
+          'New York Giants',
+          'Dallas Cowboys'
+        ],
+        cutoff: 10,
+      ).toString();
+      expect(
+        result,'(string Dallas Cowboys, score: 90, index: 3)'
+      );
+    });
   });
 }
