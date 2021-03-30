@@ -64,45 +64,53 @@ int weightedRatio(String s1, String s2) {
 /// most similar choices. Will reject any items with scores below the [cutoff].
 /// Default [cutoff] is 0
 /// Uses [WeightedRatio] as the default algorithm.
-List<ExtractedResult> extractTop(
-    {required String query,
-    required List<String> choices,
-    required int limit,
-    int cutoff = 0,
-    Applicable ratio = const WeightedRatio()}) {
+List<ExtractedResult<T>> extractTop<T>({
+  required String query,
+  required List<T> choices,
+  required int limit,
+  int cutoff = 0,
+  Applicable ratio = const WeightedRatio(),
+  String Function(T obj)? getter,
+}) {
   var extractor = Extractor(cutoff);
-  return extractor.extractTop(query, choices, ratio, limit);
+  return extractor.extractTop(query, choices, ratio, limit, getter);
 }
 
 /// Creates a list of [ExtractedResult] which contains all the choices with
 /// their corresponding score where higher is more similar.
 /// Uses [WeightedRatio] as the default algorithm
-List<ExtractedResult> extractAll(
-    {required String query,
-    required List<String> choices,
-    int cutoff = 0,
-    Applicable ratio = const WeightedRatio()}) {
+List<ExtractedResult<T>> extractAll<T>({
+  required String query,
+  required List<T> choices,
+  int cutoff = 0,
+  Applicable ratio = const WeightedRatio(),
+  String Function(T obj)? getter,
+}) {
   var extractor = Extractor(cutoff);
-  return extractor.extractWithoutOrder(query, choices, ratio);
+  return extractor.extractWithoutOrder(query, choices, ratio, getter);
 }
 
 /// Returns a sorted list of [ExtractedResult] without any cutoffs.
 /// Uses [WeightedRatio] as the default algorithm.
-List<ExtractedResult> extractAllSorted(
-    {required String query,
-    required List<String> choices,
-    int cutoff = 0,
-    Applicable ratio = const WeightedRatio()}) {
+List<ExtractedResult<T>> extractAllSorted<T>({
+  required String query,
+  required List<T> choices,
+  int cutoff = 0,
+  Applicable ratio = const WeightedRatio(),
+  String Function(T obj)? getter,
+}) {
   var extractor = Extractor(cutoff);
-  return extractor.extractSorted(query, choices, ratio);
+  return extractor.extractSorted(query, choices, ratio, getter);
 }
 
 /// Find the single best match above the [cutoff] in a list of choices.
-ExtractedResult extractOne(
-    {required String query,
-    required List<String> choices,
-    int cutoff = 0,
-    Applicable ratio = const WeightedRatio()}) {
+ExtractedResult<T> extractOne<T>({
+  required String query,
+  required List<T> choices,
+  int cutoff = 0,
+  Applicable ratio = const WeightedRatio(),
+  String Function(T obj)? getter,
+}) {
   var extractor = Extractor(cutoff);
-  return extractor.extractOne(query, choices, ratio);
+  return extractor.extractOne(query, choices, ratio, getter);
 }

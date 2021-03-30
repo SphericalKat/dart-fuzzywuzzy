@@ -1,5 +1,3 @@
-import 'package:fuzzywuzzy/algorithms/weighted_ratio.dart';
-import 'package:fuzzywuzzy/extractor.dart';
 import 'package:fuzzywuzzy/fuzzywuzzy.dart';
 
 void main() {

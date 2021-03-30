@@ -1,6 +1,12 @@
 import 'package:fuzzywuzzy/fuzzywuzzy.dart';
 import 'package:test/test.dart';
 
+class TestContainer {
+  final String innerVal;
+
+  TestContainer(this.innerVal);
+}
+
 void main() {
   group('Simple ratio', () {
     test('simple ratio returns appropriate values', () {
@@ -77,6 +83,25 @@ void main() {
           '[(string google, score: 83, index: 0), (string googleplus, score: 75, index: 5)]');
     });
 
+    test('extract top with a non-string collection', () {
+      final result = extractTop(
+          query: 'goolge',
+          choices: [
+            'google',
+            'bing',
+            'facebook',
+            'linkedin',
+            'twitter',
+            'googleplus',
+            'bingnews',
+            'plexoogl'
+          ].map((e) => TestContainer(e)).toList(),
+          limit: 4,
+          cutoff: 50,
+          getter: (TestContainer x) => x.innerVal).toString();
+      expect(result,
+          '[(string google, score: 83, index: 0), (string googleplus, score: 75, index: 5)]');
+    });
     test('extract all sorted returns appropriate values', () {
       final result = extractAllSorted(
         query: 'goolge',
@@ -91,6 +116,27 @@ void main() {
           'plexoogl'
         ],
         cutoff: 10,
+      ).toString();
+      expect(result,
+          '[(string google, score: 83, index: 0), (string googleplus, score: 75, index: 5), (string plexoogl, score: 43, index: 7), (string bingnews, score: 29, index: 6), (string linkedin, score: 29, index: 3), (string facebook, score: 29, index: 2), (string bing, score: 23, index: 1), (string twitter, score: 15, index: 4)]');
+    });
+
+    test('extract all sorted returns appropriate values for generic container',
+        () {
+      final result = extractAllSorted(
+        query: 'goolge',
+        choices: [
+          'google',
+          'bing',
+          'facebook',
+          'linkedin',
+          'twitter',
+          'googleplus',
+          'bingnews',
+          'plexoogl'
+        ].map((e) => TestContainer(e)).toList(),
+        cutoff: 10,
+        getter: (TestContainer x) => x.innerVal,
       ).toString();
       expect(result,
           '[(string google, score: 83, index: 0), (string googleplus, score: 75, index: 5), (string plexoogl, score: 43, index: 7), (string bingnews, score: 29, index: 6), (string linkedin, score: 29, index: 3), (string facebook, score: 29, index: 2), (string bing, score: 23, index: 1), (string twitter, score: 15, index: 4)]');
@@ -115,6 +161,26 @@ void main() {
           '[(string google, score: 83, index: 0), (string bing, score: 23, index: 1), (string facebook, score: 29, index: 2), (string linkedin, score: 29, index: 3), (string twitter, score: 15, index: 4), (string googleplus, score: 75, index: 5), (string bingnews, score: 29, index: 6), (string plexoogl, score: 43, index: 7)]');
     });
 
+    test('extract all returns appropriate values for generic container', () {
+      final result = extractAll(
+        query: 'goolge',
+        choices: [
+          'google',
+          'bing',
+          'facebook',
+          'linkedin',
+          'twitter',
+          'googleplus',
+          'bingnews',
+          'plexoogl'
+        ].map((e) => TestContainer(e)).toList(),
+        cutoff: 10,
+        getter: (TestContainer x) => x.innerVal,
+      ).toString();
+      expect(result,
+          '[(string google, score: 83, index: 0), (string bing, score: 23, index: 1), (string facebook, score: 29, index: 2), (string linkedin, score: 29, index: 3), (string twitter, score: 15, index: 4), (string googleplus, score: 75, index: 5), (string bingnews, score: 29, index: 6), (string plexoogl, score: 43, index: 7)]');
+    });
+
     test('extract one returns appropriate values', () {
       final result = extractOne(
         query: 'cowboys',
@@ -126,9 +192,22 @@ void main() {
         ],
         cutoff: 10,
       ).toString();
-      expect(
-        result,'(string Dallas Cowboys, score: 90, index: 3)'
-      );
+      expect(result, '(string Dallas Cowboys, score: 90, index: 3)');
+    });
+
+    test('extract one returns appropriate values for generic container', () {
+      final result = extractOne(
+        query: 'cowboys',
+        choices: [
+          'Atlanta Falcons',
+          'New York Jets',
+          'New York Giants',
+          'Dallas Cowboys'
+        ].map((e) => TestContainer(e)).toList(),
+        cutoff: 10,
+        getter: (TestContainer x) => x.innerVal
+      ).toString();
+      expect(result, '(string Dallas Cowboys, score: 90, index: 3)');
     });
   });
 }

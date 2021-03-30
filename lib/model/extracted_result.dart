@@ -1,11 +1,12 @@
 /// A model class representing results extracted from a list
-class ExtractedResult implements Comparable<ExtractedResult> {
-  final String string;
+class ExtractedResult<T> implements Comparable<ExtractedResult> {
+  final T choice;
   final int score;
   final int index;
+  final String Function(T obj) _getter;
 
-  /// Creates a new [ExtractedResult] with the given [string], [score] and [index]
-  ExtractedResult(this.string, this.score, this.index);
+  /// Creates a new [ExtractedResult] with the given [choice], [score] and [index]
+  ExtractedResult(this.choice, this.score, this.index, this._getter);
 
   @override
   int compareTo(ExtractedResult other) {
@@ -14,6 +15,6 @@ class ExtractedResult implements Comparable<ExtractedResult> {
 
   @override
   String toString() {
-    return '(string $string, score: $score, index: $index)';
+    return '(string ${_getter(choice)}, score: $score, index: $index)';
   }
 }
