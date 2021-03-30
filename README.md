@@ -19,7 +19,7 @@ I personally needed to use this for my own search algorithms, and there weren't 
 
 ```yaml
 dependencies:
-  fuzzywuzzy: 0.1.4 # latest version
+  fuzzywuzzy: 0.1.5 # latest version
 ```
 
 ## Usage
@@ -126,4 +126,24 @@ extractAll(
         ],
         cutoff: 10,
       ) // [(string google, score: 83, index: 0), (string bing, score: 23, index: 1), (string facebook, score: 29, index: 2), (string linkedin, score: 29, index: 3), (string twitter, score: 15, index: 4), (string googleplus, score: 75, index: 5), (string bingnews, score: 29, index: 6), (string plexoogl, score: 43, index: 7)]
+```
+### Extract using any a list of any type
+All `extract` methods can receive `List<T>` and return `List<ExtractedResult<T>>`
+```dart
+class TestContainer {
+  final String innerVal;
+  TestContainer(this.innerVal);
+}
+
+extractOne(
+        query: 'cowboys',
+        choices: [
+          'Atlanta Falcons',
+          'New York Jets',
+          'New York Giants',
+          'Dallas Cowboys'
+        ].map((e) => TestContainer(e)).toList(),
+        cutoff: 10,
+        getter: (TestContainer x) => x.innerVal
+      ).toString(); // (string Dallas Cowboys, score: 90, index: 3)
 ```

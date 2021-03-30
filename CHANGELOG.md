@@ -1,3 +1,8 @@
+## 0.1.5
+- Add support for extraction from generic lists
+- Add tests for generic lists
+- Update docs with information about generic types
+
 ## 0.1.4
 - Update readme with more accurate info
 
