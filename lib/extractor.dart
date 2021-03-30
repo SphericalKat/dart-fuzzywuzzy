@@ -58,7 +58,6 @@ class Extractor {
   List<ExtractedResult<T>> extractTop<T>(
       String query, List<T> choices, Applicable func, int limit,
       [String Function(T obj)? getter]) {
-    print(getter);
 
     var best = extractWithoutOrder(query, choices, func, getter);
     var results = _findTopKHeap(best, limit);
