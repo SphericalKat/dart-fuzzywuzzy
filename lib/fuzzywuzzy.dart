@@ -16,7 +16,7 @@ int ratio(String s1, String s2) {
 
 /// Inconsistent substrings lead to problems in matching.
 /// This ratio uses a heuristic called "best partial" for when two strings are
-/// of noticeably different lengths
+/// of noticeably different lengths.
 int partialRatio(String s1, String s2) {
   return PartialRatio().apply(s1, s2);
 }
@@ -36,7 +36,7 @@ int tokenSortPartialRatio(String s1, String s2) {
 /// Splits the strings into tokens and computes intersections and remainders
 /// between the tokens of the two strings. A comparison string is then
 /// built up and is compared using the simple ratio algorithm.
-/// Useful for strings where words appear redundantly
+/// Useful for strings where words appear redundantly.
 int tokenSetRatio(String s1, String s2) {
   return TokenSet().apply(s1, s2, SimpleRatio());
 }
@@ -44,7 +44,7 @@ int tokenSetRatio(String s1, String s2) {
 /// Splits the strings into tokens and computes intersections and remainders
 /// between the tokens of the two strings. A comparison string is then
 /// built up and is compared using the partial ratio algorithm.
-/// Useful for strings where words appear redundantly
+/// Useful for strings where words appear redundantly.
 int tokenSetPartialRatio(String s1, String s2) {
   return TokenSet().apply(s1, s2, PartialRatio());
 }
@@ -62,8 +62,10 @@ int weightedRatio(String s1, String s2) {
 
 /// Returns a sorted list of [ExtractedResult] which contains the top [limit]
 /// most similar choices. Will reject any items with scores below the [cutoff].
-/// Default [cutoff] is 0
+/// Default [cutoff] is 0.
 /// Uses [WeightedRatio] as the default algorithm.
+/// [getter] is optional for [String]  types, but MUST NOT be null for any other
+/// types
 List<ExtractedResult<T>> extractTop<T>({
   required String query,
   required List<T> choices,
@@ -79,6 +81,8 @@ List<ExtractedResult<T>> extractTop<T>({
 /// Creates a list of [ExtractedResult] which contains all the choices with
 /// their corresponding score where higher is more similar.
 /// Uses [WeightedRatio] as the default algorithm
+/// [getter] is optional for [String]  types, but MUST NOT be null for any other
+/// types
 List<ExtractedResult<T>> extractAll<T>({
   required String query,
   required List<T> choices,
@@ -92,6 +96,8 @@ List<ExtractedResult<T>> extractAll<T>({
 
 /// Returns a sorted list of [ExtractedResult] without any cutoffs.
 /// Uses [WeightedRatio] as the default algorithm.
+/// [getter] is optional for [String]  types, but MUST NOT be null for any other
+/// types
 List<ExtractedResult<T>> extractAllSorted<T>({
   required String query,
   required List<T> choices,
@@ -104,6 +110,8 @@ List<ExtractedResult<T>> extractAllSorted<T>({
 }
 
 /// Find the single best match above the [cutoff] in a list of choices.
+/// [getter] is optional for [String]  types, but MUST NOT be null for any other
+/// types
 ExtractedResult<T> extractOne<T>({
   required String query,
   required List<T> choices,
