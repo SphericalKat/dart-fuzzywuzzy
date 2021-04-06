@@ -135,7 +135,7 @@ class TestContainer {
   TestContainer(this.innerVal);
 }
 
-extractOne(
+extractOne<TestContainer>(
         query: 'cowboys',
         choices: [
           'Atlanta Falcons',
@@ -144,6 +144,6 @@ extractOne(
           'Dallas Cowboys'
         ].map((e) => TestContainer(e)).toList(),
         cutoff: 10,
-        getter: (TestContainer x) => x.innerVal
+        getter: (x) => x.innerVal
       ).toString(); // (string Dallas Cowboys, score: 90, index: 3)
 ```

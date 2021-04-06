@@ -84,7 +84,7 @@ void main() {
     });
 
     test('extract top with a non-string collection', () {
-      final result = extractTop(
+      final result = extractTop<TestContainer>(
           query: 'goolge',
           choices: [
             'google',
@@ -98,7 +98,7 @@ void main() {
           ].map((e) => TestContainer(e)).toList(),
           limit: 4,
           cutoff: 50,
-          getter: (TestContainer x) => x.innerVal).toString();
+          getter: (x) => x.innerVal).toString();
       expect(result,
           '[(string google, score: 83, index: 0), (string googleplus, score: 75, index: 5)]');
     });
@@ -123,7 +123,7 @@ void main() {
 
     test('extract all sorted returns appropriate values for generic container',
         () {
-      final result = extractAllSorted(
+      final result = extractAllSorted<TestContainer>(
         query: 'goolge',
         choices: [
           'google',
@@ -136,7 +136,7 @@ void main() {
           'plexoogl'
         ].map((e) => TestContainer(e)).toList(),
         cutoff: 10,
-        getter: (TestContainer x) => x.innerVal,
+        getter: (x) => x.innerVal,
       ).toString();
       expect(result,
           '[(string google, score: 83, index: 0), (string googleplus, score: 75, index: 5), (string plexoogl, score: 43, index: 7), (string bingnews, score: 29, index: 6), (string linkedin, score: 29, index: 3), (string facebook, score: 29, index: 2), (string bing, score: 23, index: 1), (string twitter, score: 15, index: 4)]');
@@ -162,7 +162,7 @@ void main() {
     });
 
     test('extract all returns appropriate values for generic container', () {
-      final result = extractAll(
+      final result = extractAll<TestContainer>(
         query: 'goolge',
         choices: [
           'google',
@@ -175,7 +175,7 @@ void main() {
           'plexoogl'
         ].map((e) => TestContainer(e)).toList(),
         cutoff: 10,
-        getter: (TestContainer x) => x.innerVal,
+        getter: (x) => x.innerVal,
       ).toString();
       expect(result,
           '[(string google, score: 83, index: 0), (string bing, score: 23, index: 1), (string facebook, score: 29, index: 2), (string linkedin, score: 29, index: 3), (string twitter, score: 15, index: 4), (string googleplus, score: 75, index: 5), (string bingnews, score: 29, index: 6), (string plexoogl, score: 43, index: 7)]');
@@ -196,7 +196,7 @@ void main() {
     });
 
     test('extract one returns appropriate values for generic container', () {
-      final result = extractOne(
+      final result = extractOne<TestContainer>(
         query: 'cowboys',
         choices: [
           'Atlanta Falcons',
@@ -205,7 +205,7 @@ void main() {
           'Dallas Cowboys'
         ].map((e) => TestContainer(e)).toList(),
         cutoff: 10,
-        getter: (TestContainer x) => x.innerVal
+        getter: (x) => x.innerVal
       ).toString();
       expect(result, '(string Dallas Cowboys, score: 90, index: 3)');
     });
