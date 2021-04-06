@@ -197,16 +197,15 @@ void main() {
 
     test('extract one returns appropriate values for generic container', () {
       final result = extractOne<TestContainer>(
-        query: 'cowboys',
-        choices: [
-          'Atlanta Falcons',
-          'New York Jets',
-          'New York Giants',
-          'Dallas Cowboys'
-        ].map((e) => TestContainer(e)).toList(),
-        cutoff: 10,
-        getter: (x) => x.innerVal
-      ).toString();
+          query: 'cowboys',
+          choices: [
+            'Atlanta Falcons',
+            'New York Jets',
+            'New York Giants',
+            'Dallas Cowboys'
+          ].map((e) => TestContainer(e)).toList(),
+          cutoff: 10,
+          getter: (x) => x.innerVal).toString();
       expect(result, '(string Dallas Cowboys, score: 90, index: 3)');
     });
   });

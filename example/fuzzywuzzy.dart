@@ -23,70 +23,66 @@ void main() {
   // Extracting top 4 choices above 50% match
   print(
     extractTop(
-      query: 'goolge',
-      choices: [
-        'google',
-        'bing',
-        'facebook',
-        'linkedin',
-        'twitter',
-        'googleplus',
-        'bingnews',
-        'plexoogl'
-      ],
-      limit: 4,
-      cutoff: 50
-    ),
+        query: 'goolge',
+        choices: [
+          'google',
+          'bing',
+          'facebook',
+          'linkedin',
+          'twitter',
+          'googleplus',
+          'bingnews',
+          'plexoogl'
+        ],
+        limit: 4,
+        cutoff: 50),
   );
 
   print(
     extractAllSorted(
-      query: 'goolge',
-      choices: [
-        'google',
-        'bing',
-        'facebook',
-        'linkedin',
-        'twitter',
-        'googleplus',
-        'bingnews',
-        'plexoogl'
-      ],
-      cutoff: 10
-    ),
+        query: 'goolge',
+        choices: [
+          'google',
+          'bing',
+          'facebook',
+          'linkedin',
+          'twitter',
+          'googleplus',
+          'bingnews',
+          'plexoogl'
+        ],
+        cutoff: 10),
   );
 
   print(
     extractAll(
-      query: 'goolge',
-      choices: [
-        'google',
-        'bing',
-        'facebook',
-        'linkedin',
-        'twitter',
-        'googleplus',
-        'bingnews',
-        'plexoogl'
-      ],
-      cutoff: 10
-    ),
+        query: 'goolge',
+        choices: [
+          'google',
+          'bing',
+          'facebook',
+          'linkedin',
+          'twitter',
+          'googleplus',
+          'bingnews',
+          'plexoogl'
+        ],
+        cutoff: 10),
   );
 
   print(
     extractOne(
-      query: 'goolge',
-      choices: [
-        'google',
-        'bing',
-        'facebook',
-        'linkedin',
-        'twitter',
-        'googleplus',
-        'bingnews',
-        'plexoogl'
-      ],
-      cutoff: 10
-    ),
+        query: 'goolge',
+        choices: [
+          'google',
+          'bing',
+          'facebook',
+          'linkedin',
+          'twitter',
+          'googleplus',
+          'bingnews',
+          'plexoogl'
+        ],
+        cutoff: 10),
   );
 }
