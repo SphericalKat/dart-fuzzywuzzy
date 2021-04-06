@@ -1,3 +1,7 @@
+## 0.1.6
+- Bump dependencies
+- Use explicit type parameters in test and examples
+
 ## 0.1.5
 - Add support for extraction from generic lists
 - Add tests for generic lists
