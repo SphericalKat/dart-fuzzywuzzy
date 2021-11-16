@@ -77,11 +77,8 @@ class Extractor {
     }
     var res = List<ExtractedResult<T>>.empty(growable: true);
     for (var i = k; i > 0; i--) {
-      try {
-        var polled = pq.removeFirst();
-        res.add(polled);
-      } catch (e) {
-        continue;
+      if (pq.isNotEmpty) {
+        res.add(pq.removeFirst());
       }
     }
     return res;
