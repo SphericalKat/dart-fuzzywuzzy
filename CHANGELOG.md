@@ -1,3 +1,7 @@
+## 0.1.7
+- Bump dependencies
+- Check if priority queue is empty instead of relying on exceptions
+
 ## 0.1.6
 - Bump dependencies
 - Use explicit type parameters in test and examples
