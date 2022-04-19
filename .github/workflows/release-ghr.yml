@@ -19,4 +19,5 @@ jobs:
         uses: go-semantic-release/action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          update-file: CHANGELOG.md
+          changelog-file: CHANGELOG.md
+          update-file: pubspec.yaml
