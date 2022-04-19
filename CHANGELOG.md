@@ -1,3 +1,6 @@
+## 0.2.0
+- Bump dependencies
+- Remove outdated packages
 ## 0.1.7
 - Bump dependencies
 - Check if priority queue is empty instead of relying on exceptions
