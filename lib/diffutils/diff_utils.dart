@@ -13,8 +13,8 @@ class DiffUtils {
 
     List<int> matrix;
 
-    var c1 = s1.runes.toList();
-    var c2 = s2.runes.toList();
+    var c1 = s1.codeUnits.toList();
+    var c2 = s2.codeUnits.toList();
 
     var p1 = 0;
     var p2 = 0;
@@ -584,8 +584,8 @@ class DiffUtils {
   static int levEditDistance(String s1, String s2, int xcost) {
     int i;
     int half;
-    var c1 = s1.runes.toList();
-    var c2 = s2.runes.toList();
+    var c1 = s1.codeUnits.toList();
+    var c2 = s2.codeUnits.toList();
     var str1 = 0;
     var str2 = 0;
     var len1 = s1.length;
