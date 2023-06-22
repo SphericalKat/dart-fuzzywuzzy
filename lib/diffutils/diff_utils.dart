@@ -122,7 +122,7 @@ class DiffUtils {
 
         pos--;
         ops[pos] = eop;
-        eop.type = EditType.INSERT;
+        eop.type = EditType.insert;
         eop.spos = i + o1;
         eop.dpos = --j + o2;
         ptr--;
@@ -135,7 +135,7 @@ class DiffUtils {
 
         pos--;
         ops[pos] = eop;
-        eop.type = EditType.DELETE;
+        eop.type = EditType.delete;
         eop.spos = --i + o1;
         eop.dpos = j + o2;
         ptr -= len2;
@@ -149,7 +149,7 @@ class DiffUtils {
         var eop = EditOp();
         ops[pos] = eop;
 
-        eop.type = EditType.REPLACE;
+        eop.type = EditType.replace;
         eop.spos = --i + o1;
         eop.dpos = --j + o2;
 
@@ -162,7 +162,7 @@ class DiffUtils {
         pos--;
         var eop = EditOp();
         ops[pos] = eop;
-        eop.type = EditType.INSERT;
+        eop.type = EditType.insert;
         eop.spos = i + o1;
         eop.dpos = --j + o2;
         ptr--;
@@ -176,7 +176,7 @@ class DiffUtils {
         var eop = EditOp();
         ops[pos] = eop;
 
-        eop.type = EditType.DELETE;
+        eop.type = EditType.delete;
         eop.spos = --i + o1;
         eop.dpos = j + o2;
         ptr -= len2;
@@ -271,7 +271,7 @@ class DiffUtils {
     EditType type;
 
     for (i = n; i != 0;) {
-      while (ops[o].type == EditType.KEEP && --i != 0) {
+      while (ops[o].type == EditType.keep && --i != 0) {
         o++;
       }
 
@@ -286,7 +286,7 @@ class DiffUtils {
       type = ops[o].type!;
 
       switch (type) {
-        case EditType.REPLACE:
+        case EditType.replace:
           do {
             spos++;
             dpos++;
@@ -298,7 +298,7 @@ class DiffUtils {
               dpos == ops[o].dpos);
           break;
 
-        case EditType.DELETE:
+        case EditType.delete:
           do {
             spos++;
             i--;
@@ -309,7 +309,7 @@ class DiffUtils {
               dpos == ops[o].dpos);
           break;
 
-        case EditType.INSERT:
+        case EditType.insert:
           do {
             dpos++;
             i--;
@@ -337,7 +337,7 @@ class DiffUtils {
     var mbIndex = 0;
 
     for (i = n; i != 0;) {
-      while (ops[o].type == EditType.KEEP && --i != 0) {
+      while (ops[o].type == EditType.keep && --i != 0) {
         o++;
       }
 
@@ -358,7 +358,7 @@ class DiffUtils {
       type = ops[o].type!;
 
       switch (type) {
-        case EditType.REPLACE:
+        case EditType.replace:
           do {
             spos++;
             dpos++;
@@ -370,7 +370,7 @@ class DiffUtils {
               dpos == ops[o].dpos);
           break;
 
-        case EditType.DELETE:
+        case EditType.delete:
           do {
             spos++;
             i--;
@@ -381,7 +381,7 @@ class DiffUtils {
               dpos == ops[o].dpos);
           break;
 
-        case EditType.INSERT:
+        case EditType.insert:
           do {
             dpos++;
             i--;

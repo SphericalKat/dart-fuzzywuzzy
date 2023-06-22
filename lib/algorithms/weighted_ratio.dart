@@ -4,9 +4,9 @@ import '../applicable.dart';
 import '../fuzzywuzzy.dart';
 
 class WeightedRatio implements Applicable {
-  static const UNBASE_SCALE = 0.95;
-  static const PARTIAL_SCALE = 0.90;
-  static const TRY_PARTIALS = true;
+  static const unbaseScaleConst = 0.95;
+  static const partialScaleConst = 0.90;
+  static const tryPartialsConst = true;
 
   const WeightedRatio();
 
@@ -19,9 +19,9 @@ class WeightedRatio implements Applicable {
       return 0;
     }
 
-    var tryPartials = TRY_PARTIALS;
-    var unbaseScale = UNBASE_SCALE;
-    var partialScale = PARTIAL_SCALE;
+    var tryPartials = tryPartialsConst;
+    var unbaseScale = unbaseScaleConst;
+    var partialScale = partialScaleConst;
 
     var base = ratio(s1, s2);
     var lenRatio = max(len1, len2) / min(len1, len2);

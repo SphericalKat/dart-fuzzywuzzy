@@ -1,1 +1,1 @@
-enum EditType { DELETE, EQUAL, INSERT, REPLACE, KEEP }
+enum EditType { delete, equal, insert, replace, keep }

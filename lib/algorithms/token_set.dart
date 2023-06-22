@@ -15,9 +15,9 @@ class TokenSet {
 
     var sortedInter = (intersection.toList()..sort()).join(' ').trim();
     var sorted1to2 =
-        (sortedInter + ' ' + (diff1to2.toList()..sort()).join(' ')).trim();
+        ('$sortedInter ${(diff1to2.toList()..sort()).join(' ')}').trim();
     var sorted2to1 =
-        (sortedInter + ' ' + (diff2to1.toList()..sort()).join(' ')).trim();
+        ('$sortedInter ${(diff2to1.toList()..sort()).join(' ')}').trim();
 
     var results = <int>[];
 
