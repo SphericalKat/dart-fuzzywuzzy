@@ -1,6 +1,6 @@
-## 1.1.3 (2023-06-22)
+## 1.1.4 (2023-06-22)
 
 #### Bug Fixes
 
-* **test:** test against sdk>3.x (f5699e34)
+* **treewide:** fix analyzer issues (47e30949)
 
