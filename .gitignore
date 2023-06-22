@@ -12,3 +12,4 @@ build/
 
 test/.test_coverage.dart
 coverage
+.semrel
