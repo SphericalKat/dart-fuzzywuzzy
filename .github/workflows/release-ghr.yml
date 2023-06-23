@@ -3,7 +3,7 @@ name: Release to GitHub releases
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   release_to_ghr:

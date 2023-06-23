@@ -1,7 +1,7 @@
 {
   "name": "dart-fuzzywuzzy",
   "version": "1.0.0",
-  "description": "[![Tests](https://github.com/SphericalKat/dart-fuzzywuzzy/actions/workflows/test.yml/badge.svg)](https://github.com/SphericalKat/dart-fuzzywuzzy/actions/workflows/test.yml) ![Coverage](https://raw.githubusercontent.com/sphericalkat/dart-fuzzywuzzy/master/coverage_badge.svg?sanitize=true)",
+  "description": "[![Tests](https://github.com/SphericalKat/dart-fuzzywuzzy/actions/workflows/test.yml/badge.svg)](https://github.com/SphericalKat/dart-fuzzywuzzy/actions/workflows/test.yml) ![Coverage](https://raw.githubusercontent.com/sphericalkat/dart-fuzzywuzzy/main/coverage_badge.svg?sanitize=true)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
