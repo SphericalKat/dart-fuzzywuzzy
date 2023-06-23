@@ -17,7 +17,7 @@ jobs:
         sdk: [stable]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
         with:
           sdk: ${{ matrix.sdk }}
@@ -33,3 +33,26 @@ jobs:
 
       - name: Run tests
         run: dart test
+    
+  coverage:
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3
+        - uses: dart-lang/setup-dart@v1
+          with:
+              sdk: stable
+        - id: install
+          name: Install dependencies
+          run: dart pub get
+
+        - name: Collect and report coverage
+          run: | 
+            dart pub global activate coverage
+            dart pub global run coverage:test_with_coverage
+
+        - name: Upload coverage
+          uses: coverallsapp/github-action@v2
+          with:
+              github-token: ${{ secrets.GITHUB_TOKEN }}
+              path-to-lcov: coverage/lcov.info
