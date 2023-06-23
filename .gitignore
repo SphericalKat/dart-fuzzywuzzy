@@ -14,3 +14,4 @@ test/.test_coverage.dart
 coverage
 .semrel
 .failed_tracker
+node_modules/
