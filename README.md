@@ -1,7 +1,7 @@
 # FuzzyWuzzy
 
 [![Tests](https://github.com/SphericalKat/dart-fuzzywuzzy/actions/workflows/test.yml/badge.svg)](https://github.com/SphericalKat/dart-fuzzywuzzy/actions/workflows/test.yml)
-![Coverage](https://raw.githubusercontent.com/sphericalkat/dart-fuzzywuzzy/main/coverage_badge.svg?sanitize=true)
+[![Coverage Status](https://coveralls.io/repos/github/SphericalKat/dart-fuzzywuzzy/badge.svg?branch=master)](https://coveralls.io/github/SphericalKat/dart-fuzzywuzzy?branch=master)
 
 This is a Dart port of the popular [FuzzyWuzzy](https://github.com/seatgeek/fuzzywuzzy) python package. This algorithm uses [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) to calculate similarity between strings.
 
