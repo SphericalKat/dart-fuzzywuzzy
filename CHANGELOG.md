@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/SphericalKat/dart-fuzzywuzzy/compare/v1.1.5...v1.1.6) (2023-06-23)
+
+
+### Bug Fixes
+
+* **changelog:** include older changelog ([0b18b7a](https://github.com/SphericalKat/dart-fuzzywuzzy/commit/0b18b7a2f0201aae5ed5b8e13f25caf1b10dd7bd))
+
 ## [1.1.5](https://github.com/SphericalKat/dart-fuzzywuzzy/compare/v1.1.4...v1.1.5) (2023-06-23)
 
 
