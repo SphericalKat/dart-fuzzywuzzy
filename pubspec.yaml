@@ -1,16 +1,13 @@
-name: "fuzzywuzzy"
-version: "1.1.4"
-homepage: "https://github.com/sphericalkat/dart-fuzzywuzzy"
+name: fuzzywuzzy
+version: 1.1.5
+homepage: https://github.com/sphericalkat/dart-fuzzywuzzy
 description: An implementation of the popular fuzzywuzzy package in Dart, to suit all your fuzzy string matching/searching needs!
-repository: "https://github.com/sphericalkat/dart-fuzzywuzzy"
-
-environment:
-  sdk: ">=3.0.0 <4.0.0"
-
-dependencies:
+repository: https://github.com/sphericalkat/dart-fuzzywuzzy
+environment: 
+  sdk: '>=3.0.0 <4.0.0'
+dependencies: 
   collection: ^1.16.0
-
-dev_dependencies:
+dev_dependencies: 
   test: ^1.24.3
   lints: ^2.1.1
   analyzer: ^5.13.0
