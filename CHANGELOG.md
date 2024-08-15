@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/SphericalKat/dart-fuzzywuzzy/compare/v1.1.7...v1.2.0) (2024-08-15)
+
+
+### Bug Fixes
+
+* **releaserc:** include pubspec yaml in git update ([f60fd44](https://github.com/SphericalKat/dart-fuzzywuzzy/commit/f60fd44a3dc146b836ff7e99ba77450af4c28f4a))
+
+
+### Features
+
+* **packages:** bump major versions for lints and analyzer ([2013cee](https://github.com/SphericalKat/dart-fuzzywuzzy/commit/2013cee5a7c560ff3a5028166024da69134037b9))
+
 ## [1.1.7](https://github.com/SphericalKat/dart-fuzzywuzzy/compare/v1.1.6...v1.1.7) (2024-08-15)
 
 
