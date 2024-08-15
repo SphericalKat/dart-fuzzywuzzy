@@ -60,6 +60,11 @@ void main() {
           'the quick brown fox jumps over the small lazy dog');
       expect(result, 97);
     });
+
+    test('Weighted ratio with newlines', () {
+      final result = weightedRatio('\n \n  ', 'test');
+      expect(result, 0);
+    });
   });
 
   group('Extractors', () {

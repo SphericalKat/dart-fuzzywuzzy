@@ -15,3 +15,6 @@ coverage
 .semrel
 .failed_tracker
 node_modules/
+
+# FVM Version Cache
+.fvm/
