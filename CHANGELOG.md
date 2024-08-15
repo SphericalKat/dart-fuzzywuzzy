@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/SphericalKat/dart-fuzzywuzzy/compare/v1.1.6...v1.1.7) (2024-08-15)
+
+
+### Bug Fixes
+
+* **ratio:** handle NaNs ([5a79f53](https://github.com/SphericalKat/dart-fuzzywuzzy/commit/5a79f535c8562c489434a14fb758ff6eba4cb3f9))
+
 ## [1.1.6](https://github.com/SphericalKat/dart-fuzzywuzzy/compare/v1.1.5...v1.1.6) (2023-06-23)
 
 
