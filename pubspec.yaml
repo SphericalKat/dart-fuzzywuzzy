@@ -9,5 +9,5 @@ dependencies:
   collection: ^1.16.0
 dev_dependencies: 
   test: ^1.24.3
-  lints: ^4.0.0
+  lints: ^5.0.0
   analyzer: ^6.5.0
