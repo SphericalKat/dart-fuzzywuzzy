@@ -10,4 +10,4 @@ dependencies:
 dev_dependencies: 
   test: ^1.24.3
   lints: ^5.0.0
-  analyzer: ^6.5.0
+  analyzer: ^7.0.0
